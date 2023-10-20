@@ -1,0 +1,590 @@
+html {
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Didact Gothic', sans-serif;
+}
+a {
+    text-decoration: none;
+    color: #F25757;
+}
+a:hover {
+    color: #FF9000;
+}
+a:active {
+    color: #FCE762;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+    background-color: white;
+    position: fixed;
+    top: 0;
+    border-bottom: 1px solid lightgray;
+    z-index: 2;
+}
+header i {
+    font-size: 1.5em;
+    color: #4c4c4c;
+}
+#logo {
+    position: relative;
+    height: 3rem;
+    display: inline-block;
+    top: 5px;
+}
+.logo_mobile {
+    display: block;
+}
+.logo_full {
+    display: none;
+}
+.logo_name {
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 2rem;
+    color: #F25757;
+    margin-left: 1rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.logo_name:nth-child(2) {
+    color: #FF9000;
+    z-index: -1;
+    left: -3px;
+    top: 3px;
+}
+.logo_name:nth-child(3) {
+    color: #FCE762;
+    z-index: -2;
+    left: -6px;
+    top: 6px;
+}
+#navBar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 10px;
+    width: 50%;
+}
+#navBar i {
+    width: 30px;
+    text-align: center;
+}
+#navBar i:last-child {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+#searchBar {
+    display: none;
+    margin: 0 10px;
+    padding: 0;
+    min-width:100%;
+}
+#searchBar input {
+    min-width: 100%;
+    background-color: whitesmoke;
+}
+#searchBar form {
+    margin-right: 30px;
+}
+.filters {
+    width: 90%;
+    margin: 65px auto -5px;
+    display: flex;
+    justify-content: space-around;
+}
+.filters a {
+    text-align: center;
+    width: 25%;
+    cursor: pointer;
+    padding: 10px;
+    margin: 1px 5px;
+    background-color: #FCE762;
+    border: none;
+    border-bottom: 2px solid #FF9000;
+    color: black;
+    outline: none;
+    transition: .2s ease all;
+    border-radius: 3px;
+}
+.filters a:hover {
+    background-color: #fcc162;
+    border-bottom: 2px solid #ff5000;
+}
+.filters a:active, .active {
+    background-color: #F25757 !important;
+    border-bottom: 2px solid darkred !important;
+}
+#clearFilters {
+    display: block;
+    width: 88%;
+    margin: 5px auto 0;
+}
+
+/* Landing Page Styles */
+#hero {
+    background-image: url(/images/lunch.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 500px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+#hero div {
+    background-color: #1B2F33;
+    background-color: rgba(0,0,0,.6);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px 10px;
+    height: 150px;
+    width: 100%;
+}
+#hero h2 {
+    margin: 0;
+    margin-bottom: 5px;
+    font-size: 3.5em;
+    color: white;
+    text-align: center;
+    text-shadow: -2px 2px 2px gray;
+}
+#hero form, #searchBar form {
+    display: flex;
+    justify-content: flex-start;
+    /* box-shadow: -1px 1px 5px gray; */
+}
+#hero form input, #searchBar input {
+    font-size: 1em;
+    border: none;
+    outline: none;
+    padding: 5px;
+    border-bottom: 2px solid darkgray;
+    border-radius: 5px 0 0 5px;
+}
+#hero form button, #searchBar button {
+    outline: none;
+    border: none;
+    background-color: #F25757;
+    color: white;
+    font-size: 1.3em;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: .2s ease all;
+    text-shadow: -2px 2px 2px gray;
+    border-bottom: 2px solid darkred;
+    border-radius: 0 5px 5px 0;
+}
+#hero form button:hover, #searchBar button:hover {
+    background-color: #c14545;
+}
+
+/* About Styles */
+#about div {
+    max-width: 90%;
+    margin: 30px auto;
+    text-align: justify;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+}
+#about div > * {
+    margin: 10px;
+}
+#about img {
+    display: none;
+}
+
+/* foodListings-Results Styles */
+.foodListings {
+    display: flex;
+    flex-flow: row wrap;
+}
+.foodListings h3, #suggestions h3 {
+    width: 90%;
+    margin: 0 auto;
+    font-size: 2em;
+    margin: 20px auto 0;
+    padding-bottom: 5px;
+    text-align: center;
+    border-bottom: 1px solid lightgray;
+}
+.restaurant {
+    width: 90%;
+    margin: 25px auto;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    border: 1px solid lightgray;
+    box-shadow: -1px 1px 5px lightgray;
+}
+.restImg {
+    width: 95%;
+    height: 250px;
+    overflow: hidden;
+    margin: 10px auto 5px;
+}
+.restImg img {
+    height: 100%;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+.restInfo {
+    width: 95%;
+    padding: 5px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+.restInfoCol {
+    position: relative;
+    width: 100%;
+}
+.restInfoCol:last-child {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+.restName {
+    font-weight: bold;
+    font-size: 1.1em;
+    margin: 5px 0;
+}   
+.restAddress {
+    margin: 0;
+}
+.restBtn, .recBtn, .unRecBtn {
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    font-size: 1em;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: .2s ease all;
+    display: block;
+    width: 100px;
+}
+.recBtn, .unRecBtn {
+    background-color: #FCE762;
+    color: black;
+    border-bottom: 2px solid #fcc162;
+    position: absolute;
+    right: 0;
+    top: 38px;
+}
+.unRecBtn, .voteBtn button:last-child {
+    background-color: #D3D3D3;
+    border-bottom: 2px solid #303030; 
+}
+.restBtn {
+    background-color: #F25757;
+    color: white;
+    border-bottom: 2px solid darkred;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.recBtn:hover, .voteBtn button:first-child:hover {
+    background-color: #fcc162;
+    border-bottom: 2px solid #ff9b5f;
+}
+.unRecBtn:hover, .voteBtn button:last-child:hover {
+    background-color: #A8A8A8;
+}
+.restBtn:hover, .suggBtn button:hover {
+    background-color: #c14545;
+}
+.recBtn:active {
+    border: none;
+    top: 40px;
+}
+.restBtn:active, .voteBtn button:first-child:active, .voteBtn button:last-child:active, .suggBtn button:active {
+    border: none !important;
+    top: 2px;
+}
+.restRating {
+    display: inline;
+}
+.restRatingStars {
+    width: 20px;
+}
+.foodListings .restRatingStars {
+    margin-top: 90px;
+}
+#topArrow {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    font-size: 3em;
+    background-color: black;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    padding: 5px;
+    color: white;
+    z-index: 2;
+    transition: .2s ease all;
+}
+#topArrow:hover {
+    background-color: darkred;
+    background-color: rgba(139, 0, 0, 0.8);
+}
+:target {
+    display: block;
+    position: relative;
+    top: -120px; 
+    visibility: hidden;
+  }
+
+/* foodShow-Individual Page Styles */
+#foodShow .restImg {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    margin: 5px 0;
+}
+#foodShow .restImg img {
+    height: 100%;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+#foodShow .restInfo {
+    font-size: 1.1em;
+}
+#foodShow h3 {
+    font-size: 2.9em;
+}
+.foodImgCol {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+}
+.foodImg {
+    width: 30%;
+    max-height: 300px;
+    overflow: hidden;
+    margin: 5px;
+}
+.foodImg img {
+    height: 100%;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+.restReviews {
+    width: 95%;
+    padding: 5px;
+    margin: 0 auto;
+}
+.restReviews h4 {
+    font-size: 1.2em;
+    border-bottom: 1px dashed lightgray;
+}
+.reviewInfo {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: justify;
+}
+.reviewInfo > * {
+    display: inline-block;
+}
+.reviewInfo span:first-child {
+    margin-right: 10px;
+    font-weight: bold;
+}
+.userImg {
+    height: 25px;
+    width: 25px;
+    overflow: hidden;
+    border-radius: 50%;
+}
+.userImg img {
+    height: 100%;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* Suggestions Page Styles */
+#suggestions .restaurant {
+    position: relative;
+}
+.bitmoji {
+    position: absolute;
+    top: -30px;
+}
+#suggestions {
+    margin: 65px auto auto;
+    display: none;
+    animation-name: slideIn;
+    animation-duration: .5s;
+    position: relative;
+}
+@keyframes slideIn {
+    from {top: -3000px; opacity: 0;}
+    to {top: 0; opacity: 1;}
+}
+#suggestions h4 {
+    width: 90%;
+    margin: 30px auto 10px;
+    text-align: center;
+    font-size: 1.3em;
+}
+#suggestions .restImg { 
+    max-width: 200px;
+    max-height: 200px;
+    overflow: hidden;
+    margin: 5px;
+}
+#suggestions .restImg img {
+    height: 100%;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+#suggestions .restInfo {
+    width: 95%;
+    padding: 5px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+#suggestions .restInfoCol {
+    position: relative;
+    width: 50%;
+    margin-right: 5px;
+}
+#suggestions .restInfoCol:last-child {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.suggBtn {
+    position: relative;
+    width: 100%;
+}
+.suggBtn button {
+    background-color: #F25757;
+    color: white;
+    border-bottom: 2px solid darkred !important;
+    position: absolute;
+}
+.voteBtn {
+    position: relative;
+    width: 100%;
+}
+.suggBtn button, .voteBtn button {
+    border: none;
+    padding: 7px;
+    border-radius: 3px;
+    outline: none;
+    position: absolute;
+    width: 50%;
+}
+.voteBtn button:first-child {
+    background-color: #FCE762;
+    color: black;
+    border-bottom: 2px solid #fcc162;
+}
+.voteBtn button:last-child {
+    right: -5px;
+}
+
+/* Footer Styles */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1B2F33;
+    color: white;
+    width: 100%;
+    height: 150px;
+    margin: 50px 0 0;
+}
+footer p {
+    margin: 1%;
+    text-align: center;
+}
+
+/* Media Queries */
+@media screen and (min-width: 500px) {
+    #hero div {
+        position: absolute;
+        top: 20%;
+        left: 5%;
+        width: 300px;
+    }
+    #hero form input, #searchBar input {
+        font-size: 1.3em;
+    }
+    #navBar i:last-child {
+        margin-left: 30px;
+        margin-right: 20px;
+    }
+}
+@media screen and (min-width: 700px) {
+    /* Hero & NavBar Styles */
+    .logo_mobile {
+        display: none;
+    }
+    .logo_full {
+        display: block;
+    }
+    /* About Styles */
+    #about div {
+        max-width: 80%;
+        margin: 50px auto;
+    }
+    #about img {
+        display: block;
+    }
+}
+@media screen and (min-width: 900px) {
+    /* foodListings-Results Styles */
+    .foodListings h3, #suggestions h3 {
+        width: 95%;
+        text-align: center;
+    }
+    .restaurant {
+        width: 45%;
+    }
+    /* foodShow - Individual Page Styles */
+    #foodShow section {
+        max-width: 75%;
+        margin: 0 auto;
+    }
+}
+@media screen and (min-width: 1400px) {
+    #about div {
+        max-width: 60%;
+    }
+    /* foodListings-Results Styles */
+    .foodListings {
+        max-width: 75%;
+        margin: 0 auto;
+    }
+    .foodListings h3, #suggestions h3 {
+        margin-top: 20px;
+        width: 97%;
+    }
+    .restaurant {
+        width: 30%;
+    }
+}
