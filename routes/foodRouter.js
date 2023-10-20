@@ -57,8 +57,8 @@ const chainCompanies = [ "Fatburger" , "WaBa Grill" , "Piara Pizza" , "Wienersch
 router.get('/', (req, res, next) => { res.redirect('/')})
 router.get('/location=', (req, res) => { res.redirect('/')}) 
 router.post('/results', (req, res) => { 
-    if(!req.body.cityBox){throw new Error("No Location Specified")} // -- Throws error if search box was left blank
-    res.redirect(`/food/location=${req.body.cityBox}`)              // -- Redirects below, to add a page term.  
+    if(!req.body){throw new Error("No Location Specified")} // -- Throws error if search box was left blank
+    res.redirect(`/food/location=${req.body}`)              // -- Redirects below, to add a page term.  
 });
 
 //This lets the user type in a URL of "/food/location=NAME" and sends them to their search results with price=all
