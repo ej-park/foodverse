@@ -57,7 +57,6 @@ const chainCompanies = [ "Fatburger" , "WaBa Grill" , "Piara Pizza" , "Wienersch
 router.get('/', (req, res, next) => { res.redirect('/')})
 router.get('/location=', (req, res) => { res.redirect('/')}) 
 router.post('/results', (req, res) => { 
-    console.log(req.body.cityBox);
     if(!req.body.cityBox){throw new Error("No Location Specified")} // -- Throws error if search box was left blank
     res.redirect(`/food/location=${req.body.cityBox}`)              // -- Redirects below, to add a page term.  
 });
